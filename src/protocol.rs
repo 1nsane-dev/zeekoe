@@ -325,7 +325,11 @@ pub mod close {
     pub type MerchantSendAuthorization = Session! {
         // Tezos authorization signature
         recv MutualCloseAuthorizationSignature;
-        // Merchant verifies the signature
+        CustomerVerifySignature;
+    };
+
+    pub type CustomerVerifySignature = Session! {
+        // Customer verifies the signature
         ChooseAbort<Done, Error>
     };
 }
